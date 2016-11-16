@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+	.container{width:1000px;height: 600px;background:  url(images/hougong.jpg)no-repeat;border:2px solid #eee;margin: 10px auto;perspective:800px;}
+	.box1{width: 121px;height: 221px;position: relative;margin-right: 20px;display: inline-block;transform-style: preserve-3d;transition: all 1s;margin-top:50px;}
+	.face{width: 81px;height: 201px;position: absolute;top:0;left:0; border-radius: 5px;margin: 10px 20px;}
+	.face1{background:  url(images/hougong1.jpg)no-repeat;transform: translateZ(10PX);}
+	.face2{background:  url(images/hougong1.jpg)no-repeat;transform: translateZ(-10PX);}
+	.face3{background:  url(images/boot.jpg)no-repeat;width:20px;height: 201px;transform:rotateY(-90deg) translateZ(10px);}
+	.face4{background:  url(images/boot.jpg)no-repeat;width: 20px;height: 201px;transform:rotateY(90deg) translateZ(71px);}
+	.box1:hover{transform: rotateY(180deg);}
+		
+	</style>
+
+
+
+
+
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="box1">
+			<section class="face face1"></section>
+			<section class="face face2"></section>
+			<section class="face face3"></section>
+			<section class="face face4"></section>
+		</div>
+	</div>
+</body>
+</html>

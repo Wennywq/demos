@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+	*{margin: 0 ;padding: 0;}
+	body{font-family: arial;}
+	.container{margin: 100px auto; width: 250px;background-color: #ccc;padding-bottom: 10px;}
+	.flexBox{display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-around;width:100%;}
+	.month{width: 60px;height: 60px;background-color: #333;text-align: center;color: #fff;margin: 10px;}
+	.month h2{padding-top: 10px;}
+	.title{margin: 5px;border: 1px solid #fff;}
+	.act{margin: 5px;border: 1px solid #fff;}
+    .active{background-color: #fff;color: red;}
+
+		
+	</style>
+
+	
+
+	
+
+</head>
+<body>
+	<div class="container">
+		<div class="flexBox">
+			<div class="month active">
+				<h2>1</h2>
+				<p>AN</p>
+			</div>
+			<div class="month">
+				<h2>2</h2>
+				<p>FEB</p>
+			</div>
+			<div class="month">
+				<h2>3</h2>
+				<p>MAR</p>
+			</div>
+			<div class="month">
+				<h2>4</h2>
+				<p>ARP</p>
+			</div>
+			<div class="month">
+				<h2>5</h2>
+				<p>MAY</p>
+			</div>
+			<div class="month">
+				<h2>6</h2>
+				<p>JUN</p>
+			</div>
+			<div class="month">
+				<h2>7</h2>
+				<p>JUL</p>
+			</div>
+			<div class="month">
+				<h2>8</h2>
+				<p>AUG</p>
+			</div>
+			<div class="month">
+				<h2>9</h2>
+				<p>SEP</p>
+			</div>
+			<div class="month">
+				<h2>10</h2>
+				<p>OCT</p>
+			</div>
+			<div class="month">
+				<h2>11</h2>
+				<p>NOV</p>
+			</div>
+			<div class="month">
+				<h2>12</h2>
+				<p>DEC</p>
+			</div>
+		</div>
+		<div class="act">
+			<h2 id="title">1 月活动</h2>
+			<p id="actMessage">寒假开始喽~~~~~~~~</p>
+		</div>
+	</div>
+
+	<script>
+		window.onload = function(){
+			var messArray = ['一月份活动：1111',
+			                 '二月份活动：2222',
+			                 '三月份活动：3333',
+			                 '四月份活动：4444',
+			                 '五月份活动：5555',
+			                 '六月份活动：6666',
+			                 '七月份活动：7777',
+			                 '八月份活动：8888',
+			                 '九月份活动：9999',
+			                 '十月份活动：10101010',
+			                 '十一月份活动：11 11 11 ',
+			                 '十二月份活动：1212121'
+			                 ];
+			var monthEle = document.getElementsByClassName('month');
+			for(i = 0; i < monthEle.length ; i++){
+				monthEle[i].index = i;
+				monthEle[i].onclick = function(){
+					for(j = 0 ; j < monthEle.length; j++){
+						if(j == this.index){
+							this.className = 'month active';
+						}
+						else{
+							monthEle[j].className = 'month';
+						}
+					}
+				
+                var index = this.index;
+                var message = messArray[index];
+				var titleEle = document.getElementById('title');
+				titleEle.innerHTML = (index+1)+'月活动';
+				var actMessageEle = document.getElementById('actMessage');
+				
+				actMessageEle.innerHTML = message;
+
+
+
+			}
+
+	}
+
+			
+	}
+	</script>
+</body>
+</html>

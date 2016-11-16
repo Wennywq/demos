@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+	*{margin: 0;padding: 0;}
+	
+		.small{border: 1px solid black;width: 200px;height: 200px;position: relative;float: left;margin-right: 50px;}
+		.small>img{width: 200px;height: 200px;}
+		.big{width: 400px;height: 400px;float: left;border: 1px solid black;overflow: hidden;position: relative;}
+		.big>img{position: absolute;top: 0;left: 0;}
+		.mask{width: 50px;height:50px;background-color: black;opacity: 0.1;position: absolute;top: 0;left: 0;}
+	</style>
+</head>
+<body>
+	<div class="small">
+		<img src="images/small.jpg" alt="">
+	</div>
+	<div class="mask"></div>
+	<div class="big">
+		<img src="images/big.jpg" alt="" id="bigImg">
+	</div>
+
+	<script>
+	window.onload = function(){
+
+		var maskEle = document.getElementsByClassName('mask')[0];
+		var smallEle = document.getElementsByClassName('small')[0];
+		var bigEle = document.getElementsByClassName('big')[0];
+		var bigImgEle = document.getElementById('bigImg');
+		smallEle.onmousemove = function(e){
+            var ev = e||event;
+
+            var clientX = ev.clientX;
+            var clientY = ev.clientY;
+
+            var leftEle = clientX - smallEle.offsetLeft - maskEle.offsetWidth/2;
+            var topEle = clientY - smallEle.offsetTop - maskEle.offsetHeight/2;
+
+            if(leftEle<0){leftEle = 0;}
+            if(leftEle>smallEle.offsetWidth - maskEle.offsetWidth){
+            	leftEle =smallEle.offsetWidth - maskEle.offsetWidth;
+            }
+            if(topEle<0){topEle = 0;}
+            if(topEle>smallEle.offsetHeight - maskEle.offsetHeight){
+            	topEle =smallEle.offsetHeight - maskEle.offsetHeight;
+            }
+            maskEle.style.left = leftEle+'px';
+            maskEle.style.top = topEle+'px';
+
+            var smallXDistance = smallEle.offsetWidth-maskEle.offsetWidth;
+            var bigXDistance = bigImg.offsetWidth - bigEle.offsetWidth;
+
+            var percentX =leftEle/smallXDistance;
+            var bigImgXEleMove = -percentX*bigXDistance;
+            bigImgEle.style.left = bigImgXEleMove+'px';
+
+            var smallYDistance = smallEle.offsetHeight-maskEle.offsetHeight;
+            var bigYDistance = bigImg.offsetHeight - bigEle.offsetHeight;
+
+            var percentY =topEle/smallYDistance;
+            var bigImgYEleMove = -percentY*bigYDistance;
+            bigImgEle.style.top = bigImgYEleMove+'px';
+
+
+
+
+
+		}
+	}
+
+	</script>
+</body>
+</html>
